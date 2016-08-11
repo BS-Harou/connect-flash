@@ -1,4 +1,4 @@
-# connect-flash
+# connect-flash-plus
 
 The flash is a special area of the session used for storing messages.  Messages
 are written to the flash and cleared after being displayed to the user.  The
@@ -10,27 +10,33 @@ Express 3.x removed direct support for the flash.  connect-flash brings this
 functionality back to Express 3.x, as well as any other middleware-compatible
 framework or application. +1 for [radical reusability](http://substack.net/node_aesthetic).
 
+connect-flash-plus is a fork of the original connect-flash module but it contains
+several pull request the orginal repo still has not accepted.
+
 ## Install
 
-    $ npm install connect-flash
+    $ npm install connect-flash-plus
 
 ## Usage
 
-#### Express 3.x
+#### Express 4.x
 
-Flash messages are stored in the session.  First, setup sessions as usual by
-enabling `cookieParser` and `session` middleware.  Then, use `flash` middleware
-provided by connect-flash.
+Flash messages are stored in the session.  First, setup sessions by enabling
+`session` middleware.  Then, use `flash` middleware provided by connect-flash.
 
 ```javascript
-var flash = require('connect-flash');
+var express = require('express');
+var flash = require('connect-flash-plus');
+var session = require('express-session');
 var app = express();
 
-app.configure(function() {
-  app.use(express.cookieParser('keyboard cat'));
-  app.use(express.session({ cookie: { maxAge: 60000 }}));
-  app.use(flash());
-});
+app.use(express.session({
+  secret: 'keyboard cat',
+  cookie: { maxAge: 60000 }
+}));
+
+app.use(flash());
+
 ```
 
 With the `flash` middleware in place, all requests will have a `req.flash()` function
@@ -51,18 +57,23 @@ app.get('/', function(req, res){
 
 ## Examples
 
-For an example using connect-flash in an Express 3.x app, refer to the [express3](https://github.com/jaredhanson/connect-flash/tree/master/examples/express3)
+For an example using connect-flash-plus in an Express 4.x app, refer to the [express4](https://github.com/BS-Harou/connect-flash-plus/tree/master/examples/express4)
 example.
+
+For an example using connect-flash-plus in an Express 3.x app, refer to the [express3](https://github.com/BS-Harou/connect-flash-plus/tree/master/examples/express3)
+example.
+
 
 ## Tests
 
     $ npm install --dev
     $ make test
 
-[![Build Status](https://secure.travis-ci.org/jaredhanson/connect-flash.png)](http://travis-ci.org/jaredhanson/connect-flash)
+[![Build Status](https://secure.travis-ci.org/BS-Harou/connect-flash-plus.png)](http://travis-ci.org/BS-Harou/connect-flash-plus)
 
 ## Credits
 
+  - [Martin Kadlec](http://github.com/BS-Harou)
   - [Jared Hanson](http://github.com/jaredhanson)
   - [TJ Holowaychuk](https://github.com/visionmedia)
 

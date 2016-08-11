@@ -1,8 +1,13 @@
 {
   "name": "connect-flash-plus",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Flash message middleware for Connect based on connect-flash",
-  "keywords": ["connect", "express", "flash", "messages"],
+  "keywords": [
+    "connect",
+    "express",
+    "flash",
+    "messages"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/BS-Harou/connect-flash-plus.git"
@@ -17,8 +22,7 @@
   },
   "license": "MIT",
   "main": "./lib",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "cross-env": "^1.0.8",
     "vows": "0.9.0-rc3"
@@ -26,5 +30,7 @@
   "scripts": {
     "test": "node ./node_modules/cross-env/bin/cross-env.js NODE_PATH=lib node_modules/.bin/vows test/index-test.js test/flash-test.js"
   },
-  "engines": { "node": ">= 0.12.0" }
+  "engines": {
+    "node": ">= 0.12.0"
+  }
 }

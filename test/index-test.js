@@ -3,7 +3,7 @@ var assert = require('assert');
 var flash = require('index');
 
 
-vows.describe('connect-flash').addBatch({
+vows.describe('connect-flash-plus').addBatch({
   
   'module': {
     'should export middleware': function () {

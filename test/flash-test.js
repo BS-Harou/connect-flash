@@ -52,7 +52,7 @@ vows.describe('flash').addBatch({
         var msgs = req.flash('error');
         assert.lengthOf(msgs, 1);
         assert.equal(msgs[0], 'Something went wrong');
-        assert.lengthOf(Object.keys(req.session.flash), 0);
+        assert.equal(req.session.flash, undefined);
       },
       'should set multiple flash messages' : function(err, req, res) {
         req.flash('info', 'Welcome');
@@ -74,7 +74,7 @@ vows.describe('flash').addBatch({
         assert.lengthOf(msgs, 2);
         assert.equal(msgs[0], 'Welcome');
         assert.equal(msgs[1], 'Check out this great new feature');
-        assert.lengthOf(Object.keys(req.session.flash), 0);
+        assert.equal(req.session.flash, undefined);
       },
       'should set flash messages of multiple types' : function(err, req, res) {
         req.flash('info', 'Welcome back');
@@ -100,7 +100,6 @@ vows.describe('flash').addBatch({
         assert.lengthOf(Object.keys(msgs), 2);
         assert.lengthOf(msgs['error'], 2);
         assert.lengthOf(msgs['notice'], 1);
-        assert.lengthOf(Object.keys(req.session.flash), 0);
       },
       'should format messages' : function(err, req, res) {
         if (util.format) {

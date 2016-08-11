@@ -1,6 +1,6 @@
 var express = require('express');
 var logger = require('morgan');
-var flash = require('connect-flash');
+var flash = require('../..');
 var session = require('express-session');
 
 var routes = require('./routes/index.js');

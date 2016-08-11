@@ -1,29 +1,30 @@
 {
-  "name": "connect-flash",
-  "version": "0.1.1",
-  "description": "Flash message middleware for Connect.",
+  "name": "connect-flash-plus",
+  "version": "0.2.0",
+  "description": "Flash message middleware for Connect based on connect-flash",
   "keywords": ["connect", "express", "flash", "messages"],
   "repository": {
     "type": "git",
-    "url": "git://github.com/jaredhanson/connect-flash.git"
+    "url": "git://github.com/BS-Harou/connect-flash-plus.git"
   },
   "bugs": {
-    "url": "http://github.com/jaredhanson/connect-flash/issues"
+    "url": "http://github.com/BS-Harou/connect-flash-plus/issues"
   },
   "author": {
-    "name": "Jared Hanson",
-    "email": "jaredhanson@gmail.com",
-    "url": "http://www.jaredhanson.net/"
+    "name": "Martin Kadlec",
+    "email": "harou2@gmail.com",
+    "url": "http://www.martinkadlec.eu/"
   },
   "license": "MIT",
   "main": "./lib",
   "dependencies": {
   },
   "devDependencies": {
-    "vows": "0.6.x"
+    "cross-env": "^1.0.8",
+    "vows": "0.9.0-rc3"
   },
   "scripts": {
-    "test": "NODE_PATH=lib node_modules/.bin/vows test/*-test.js"
+    "test": "node ./node_modules/cross-env/bin/cross-env.js NODE_PATH=lib node_modules/.bin/vows test/index-test.js test/flash-test.js"
   },
-  "engines": { "node": ">= 0.4.0" }
+  "engines": { "node": ">= 0.12.0" }
 }

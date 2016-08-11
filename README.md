@@ -30,7 +30,7 @@ var flash = require('connect-flash-plus');
 var session = require('express-session');
 var app = express();
 
-app.use(express.session({
+app.use(session({
   secret: 'keyboard cat',
   cookie: { maxAge: 60000 }
 }));
